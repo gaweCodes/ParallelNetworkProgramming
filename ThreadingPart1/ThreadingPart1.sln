@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiningPhilosopherTestat", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaitHandleExample", "WaitHandleExample\WaitHandleExample.csproj", "{1EC8AC7D-BF1D-40BC-9689-ABDB247E4EC8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultithreadingAdd", "MultithreadingAdd\MultithreadingAdd.csproj", "{BA9DC607-1032-431B-80F6-9EE7F2D85CF2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadPartitioningDemo", "ThreadPartitioningDemo\ThreadPartitioningDemo.csproj", "{FBEFED91-F460-4AE0-B017-7D72BF9DB8D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,14 @@ Global
 		{1EC8AC7D-BF1D-40BC-9689-ABDB247E4EC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EC8AC7D-BF1D-40BC-9689-ABDB247E4EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EC8AC7D-BF1D-40BC-9689-ABDB247E4EC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA9DC607-1032-431B-80F6-9EE7F2D85CF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA9DC607-1032-431B-80F6-9EE7F2D85CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA9DC607-1032-431B-80F6-9EE7F2D85CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA9DC607-1032-431B-80F6-9EE7F2D85CF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBEFED91-F460-4AE0-B017-7D72BF9DB8D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBEFED91-F460-4AE0-B017-7D72BF9DB8D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBEFED91-F460-4AE0-B017-7D72BF9DB8D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBEFED91-F460-4AE0-B017-7D72BF9DB8D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
