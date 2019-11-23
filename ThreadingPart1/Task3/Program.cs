@@ -5,33 +5,36 @@ namespace Task3
 {
     internal class Program
     {
-        [ThreadStatic] private static readonly Buffer Buffer;
+        private static readonly Buffer Buf = new Buffer(4);
+        private static readonly Random Rand = new Random();
         private static void Main()
         {
-
-            var writer = new Thread(PutBuffer);
-            writer.Start();
-            var reader = new Thread(ReadBuffer);
-            reader.Start();
+            var p1 = new Thread(Produce) { Name = "Producer1" };
+            var p2 = new Thread(Produce) { Name = "Producer2" };
+            var c1 = new Thread(Consume) { Name = "Consumer1" };
+            var c2 = new Thread(Consume) { Name = "Consumer2" };
+            p1.Start();
+            p2.Start();
+            c1.Start();
+            c2.Start();
+            Console.ReadLine();
         }
 
-        private static void PutBuffer()
+        private static void Produce()
         {
-            var r = new Random();
-            do
+            for (var i = 0; i < 5; i++)
             {
-                Buffer.Put(Console.ReadLine()[0]);
-                Thread.Sleep(r.Next(1, 5000));
-            } while (1 == 1);
+                Buf.Put('x');
+                Thread.Sleep(Rand.Next(1000));
+            }
         }
-        private static void ReadBuffer()
+        private static void Consume()
         {
-            var r = new Random();
-            do
+            for (var i = 0; i < 5; i++)
             {
-                Console.Write(Buffer.Get());
-                Thread.Sleep(r.Next(1, 5000));
-            } while (1 == 1);
+                Buf.Get();
+                Thread.Sleep(Rand.Next(100));
+            }
         }
     }
 }

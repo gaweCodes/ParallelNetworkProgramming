@@ -1,0 +1,1 @@
+Siehe Projekt DiningPhilosopher
