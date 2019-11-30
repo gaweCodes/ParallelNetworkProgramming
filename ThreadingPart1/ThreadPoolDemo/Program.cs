@@ -1,28 +1,47 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace ThreadPoolDemo
 {
-    delegate int AdditionDelegate(int number1, int number2);
+    delegate List<int> Primes(int max);
     internal class Program
     {
         private static void Main()
         {
-            AdditionDelegate del = DoWork;
-            // Console.WriteLine($"Without begin invoke {del(10, 20)}");
-            Console.WriteLine("Starting with BeginInvoke");
-            var result = del.BeginInvoke(10,20, AddCallback, null);
-            Console.WriteLine("Waiting on work...");
-            var ret = del.EndInvoke(result);
-            Console.WriteLine($"{ret}");
-            Console.ReadLine();
+            var primesCalculatorDel = new Primes(FindPrimes);
+            primesCalculatorDel.BeginInvoke(200000000, FindPrimesCallback, primesCalculatorDel);
+            // Func<int, List<int>> ftn = FindPrimes;
+            // ftn.BeginInvoke(200000000, FindPrimesCallback, ftn);
+            for (var i = 0; i < 10; i++)
+            {
+                Console.Write("1");
+                Thread.Sleep(1000);
+            }
         }
-
-        private static int DoWork(int number1, int number2)
+        private static List<int> FindPrimes(int max)
         {
-            Thread.Sleep(2000);
-            return number1 + number2;
+            var vals = new List<int>((int) (max / (Math.Log(max) - 1.08366))) {2};
+            var maxSquareRoot = Math.Sqrt(max);
+            var eliminated = new System.Collections.BitArray(max + 1);
+            
+            for (var i = 3; i <= max; i += 2)
+            {
+                if (eliminated[i]) continue;
+                if (i < maxSquareRoot)
+                {
+                    for (var j = i * i; j <= max; j += 2 * i)
+                        eliminated[j] = true;
+                }
+                vals.Add(i);
+            }
+            return vals;
         }
-        private static void AddCallback(IAsyncResult result) => Console.WriteLine($"Callback {result.IsCompleted}");
+        private static void FindPrimesCallback(IAsyncResult asyncResult)
+        {
+            var result = ((Primes)asyncResult.AsyncState).EndInvoke(asyncResult);
+            Console.WriteLine();
+            Console.WriteLine(result[result.Count - 1]);
+        }
     }
 }

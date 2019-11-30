@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultithreadingAdd", "Multit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreadPartitioningDemo", "ThreadPartitioningDemo\ThreadPartitioningDemo.csproj", "{FBEFED91-F460-4AE0-B017-7D72BF9DB8D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadPoolDemo", "ThreadPoolDemo\ThreadPoolDemo.csproj", "{096F845D-5DC7-448F-8146-8A77A2140677}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeginInvoke", "ThreadPoolDemo\BeginInvoke.csproj", "{096F845D-5DC7-448F-8146-8A77A2140677}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
