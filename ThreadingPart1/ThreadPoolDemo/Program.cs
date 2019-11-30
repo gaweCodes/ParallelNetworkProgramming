@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 
 namespace ThreadPoolDemo
 {
-    delegate List<int> Primes(int max);
+    internal delegate List<int> Primes(int max);
     internal class Program
     {
         private static void Main()
@@ -23,7 +24,7 @@ namespace ThreadPoolDemo
         {
             var vals = new List<int>((int) (max / (Math.Log(max) - 1.08366))) {2};
             var maxSquareRoot = Math.Sqrt(max);
-            var eliminated = new System.Collections.BitArray(max + 1);
+            var eliminated = new BitArray(max + 1);
             
             for (var i = 3; i <= max; i += 2)
             {
