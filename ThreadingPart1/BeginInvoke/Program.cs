@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace ThreadPoolDemo
+namespace BeginInvoke
 {
     internal delegate List<int> Primes(int max);
     internal class Program
@@ -22,10 +22,10 @@ namespace ThreadPoolDemo
         }
         private static List<int> FindPrimes(int max)
         {
-            var vals = new List<int>((int) (max / (Math.Log(max) - 1.08366))) {2};
+            var vals = new List<int>((int)(max / (Math.Log(max) - 1.08366))) { 2 };
             var maxSquareRoot = Math.Sqrt(max);
             var eliminated = new BitArray(max + 1);
-            
+
             for (var i = 3; i <= max; i += 2)
             {
                 if (eliminated[i]) continue;

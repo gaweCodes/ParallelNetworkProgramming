@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{096F845D-5DC7-448F-8146-8A77A2140677}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ThreadPoolDemo</RootNamespace>
-    <AssemblyName>ThreadPoolDemo</AssemblyName>
+    <RootNamespace>BeginInvoke</RootNamespace>
+    <AssemblyName>BeginInvoke</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
