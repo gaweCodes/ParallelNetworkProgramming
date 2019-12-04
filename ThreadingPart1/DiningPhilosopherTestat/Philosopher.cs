@@ -12,12 +12,12 @@ namespace DiningPhilosopherTestat
         private readonly int _rightForkNo;
         private readonly ForkPool _forkPool;
         private readonly Thread _philosopherThread;
-        internal Philosopher(int id, int thinkDuration, int eatDuration)
+        internal Philosopher(int id, int thinkDuration, int eatDuration, ForkPool pool)
         {
             _philosopherNo = id;
             _thinkDuration = thinkDuration;
             _eatDuration = eatDuration;
-            _forkPool = new ForkPool();
+            _forkPool = pool;
             _leftForkNo = id == 0 ? 4 : id - 1;
             _rightForkNo = (id + 1) % 5;
             _philosopherThread = new Thread(this.Run);
