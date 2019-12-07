@@ -4,6 +4,7 @@ namespace DiningPhilosopherTestat
 {
     internal class ForkPool
     {
+        // oder ein bool array
         private readonly Fork[] _forks = {new Fork(), new Fork(), new Fork(), new Fork(), new Fork()};
         private readonly object _locker = new object();
         public void GetMyForks(int left, int right)

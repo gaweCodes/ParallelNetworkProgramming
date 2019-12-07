@@ -9,14 +9,10 @@ namespace Task3
         private static readonly Random Rand = new Random();
         private static void Main()
         {
-            var p1 = new Thread(Produce) { Name = "Producer1" };
-            var p2 = new Thread(Produce) { Name = "Producer2" };
-            var c1 = new Thread(Consume) { Name = "Consumer1" };
-            var c2 = new Thread(Consume) { Name = "Consumer2" };
-            p1.Start();
-            p2.Start();
-            c1.Start();
-            c2.Start();
+            new Thread(Produce) { Name = "Producer1" }.Start();
+            new Thread(Produce) { Name = "Producer2" }.Start();
+            new Thread(Consume) { Name = "Consumer1" }.Start();
+            new Thread(Consume) { Name = "Consumer2" }.Start();
             Console.ReadLine();
         }
 
