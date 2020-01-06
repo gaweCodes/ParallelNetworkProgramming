@@ -4,16 +4,18 @@ using System.Threading.Tasks;
 
 namespace PeriodTickerTask
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             var t1 = new Task(() => { PeriodTicker('.', 10); });
             var t2 = t1.ContinueWith(delegate { PeriodTicker('"', 10); });
             t1.Start();
             t2.Wait();
             Console.WriteLine("\nEnde");
+            Parallel.Invoke(() => PeriodTicker('.',10), () => PeriodTicker('*', 20));
             Console.ReadKey();
+            Console.WriteLine("Ende 2");
         }
 
         private static void PeriodTicker(char sign, int intervallMillis)
