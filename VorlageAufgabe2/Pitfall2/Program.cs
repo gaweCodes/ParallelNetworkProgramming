@@ -1,7 +1,7 @@
-﻿namespace Pitfall2 {
-    class Program {
-        static void Main(string[] args) {
-            new Downloader().DownloadAsync().Wait();
-        }
+﻿namespace Pitfall2 
+{
+    internal class Program 
+    {
+        private static void Main() => new Downloader().DownloadAsync().Wait();
     }
 }

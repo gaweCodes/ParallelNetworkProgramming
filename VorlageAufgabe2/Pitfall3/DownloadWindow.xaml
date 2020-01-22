@@ -9,7 +9,7 @@
       <System:String>http://www.google.com</System:String>
       <System:String>http://www.bing.com</System:String>
       <System:String>http://www.yahoo.com</System:String>
-      <System:String>http://www.facebook.com</System:String>
+      <System:String>http://www.github.com</System:String>
     </ListBox>
     <TextBox x:Name="urlEntryTextBox" Height="23" Margin="19,10,101,0" TextWrapping="Wrap" Text="http://www.concurrency.ch" VerticalAlignment="Top"/>
     <Button x:Name="addButton" Content="Add" Margin="0,13,21,0" VerticalAlignment="Top" Click="addButton_Click" HorizontalAlignment="Right" Width="75"/>

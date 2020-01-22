@@ -1,47 +1,49 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace Pitfall4 {
-    public class BankAccount {
-        private int _balance = 0;
-
-        public void Deposit(int amount) {
-            _balance += amount;
-        }
-
-        public bool Withdraw(int amount) {
-            if (amount <= _balance) {
-                _balance -= amount;
-                return true;
-            } else {
-                return false;
+namespace Pitfall4 
+{
+    public class RaceSample
+    {
+        private static readonly SemaphoreSlim SemaphoreSlim = new SemaphoreSlim(1, 1);
+        public async Task CustomerBehaviorAsync(BankAccount account)
+        {
+            await SemaphoreSlim.WaitAsync();
+            try
+            {
+                await Task.Run(() => { Console.WriteLine("Start"); });
+                for (var i = 0; i < 1000000; i++)
+                {
+                    account.Deposit(100);
+                    account.Withdraw(100);
+                }
+            }
+            finally
+            {
+                SemaphoreSlim.Release();
             }
         }
-
-        public int Balance {
-            get { return _balance; }
-        }
-    }
-
-    public class RaceSample {
-        public async Task CustomerBehaviorAsync(BankAccount account) {
-            await Task.Run(() => { Console.WriteLine("Start"); });
-            // runs as continuation
-            for (int i = 0; i < 1000000; i++) {
-                account.Deposit(100);
-                account.Withdraw(100);
-            }
-        }
-
-        public async Task TestRunAsync() {
+        public async Task TestRunAsync()
+        {
             var account = new BankAccount();
             var customer1 = CustomerBehaviorAsync(account);
             var customer2 = CustomerBehaviorAsync(account);
             await customer1;
             await customer2;
-            if (account.Balance != 0) {
-                throw new Exception(string.Format("Race condition occurred: Balance is {0}", account.Balance));
-            }
+            if (account.Balance != 0) throw new Exception($"Race condition occurred: Balance is {account.Balance}");
+            Console.ReadLine();
+        }
+    }
+    public class BankAccount 
+    {
+        public int Balance { get; set; }
+        public void Deposit(int amount) => Balance += amount;
+        public bool Withdraw(int amount)
+        {
+            if (amount > Balance) return false;
+            Balance -= amount;
+            return true;
         }
     }
 }

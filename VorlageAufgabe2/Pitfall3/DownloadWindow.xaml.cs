@@ -5,25 +5,22 @@ using System.Net.Http;
 using System.Windows;
 
 namespace Demo2_AsyncDownloadGUI {
-    public partial class MainWindow : Window {
-        public MainWindow() {
-            InitializeComponent();
-        }
-
-        private void addButton_Click(object sender, RoutedEventArgs e) {
-            urlListBox.Items.Add(urlEntryTextBox.Text);
-        }
-
-        private async void downloadButton_Click(object sender, RoutedEventArgs e) {
+    /**
+     * One Way to solve is my current implementation. Another way would be a semaphor or something like this.
+     */
+    public partial class MainWindow : Window 
+    {
+        private IEnumerable<string> UrlCollection => urlListBox.Items.Cast<string>();
+        public MainWindow() => InitializeComponent();
+        private void addButton_Click(object sender, RoutedEventArgs e) => urlListBox.Items.Add(urlEntryTextBox.Text);
+        private async void downloadButton_Click(object sender, RoutedEventArgs e) 
+        {
             var client = new HttpClient();
-            foreach (string url in UrlCollection) {
+            foreach (var url in UrlCollection.ToList()) 
+            {
                 var data = await client.GetStringAsync(url);
-                outputTextBox.Text += string.Format("{0} downloaded: {1} bytes", url, data.Length) + Environment.NewLine;
+                outputTextBox.Text += $"{url} downloaded: {data.Length} bytes" + Environment.NewLine;
             }
-        }
-
-        private IEnumerable<string> UrlCollection {
-            get { return urlListBox.Items.Cast<string>(); }
         }
     }
 }

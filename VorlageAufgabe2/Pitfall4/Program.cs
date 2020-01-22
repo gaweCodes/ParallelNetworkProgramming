@@ -1,8 +1,9 @@
-﻿
-namespace Pitfall4 {
-    class Program {
-        static void Main(string[] args) {
-            new RaceSample().TestRunAsync().Wait();
-        }
+﻿using System;
+
+namespace Pitfall4 
+{
+    internal class Program
+    {
+        private static void Main() => new RaceSample().TestRunAsync().Wait();
     }
 }
