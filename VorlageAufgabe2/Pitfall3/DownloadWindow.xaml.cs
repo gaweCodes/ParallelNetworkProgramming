@@ -16,10 +16,10 @@ namespace Demo2_AsyncDownloadGUI {
         private async void downloadButton_Click(object sender, RoutedEventArgs e) 
         {
             var client = new HttpClient();
-            foreach (var url in UrlCollection.ToList()) 
+            foreach (var url in UrlCollection.ToList())
             {
                 var data = await client.GetStringAsync(url);
-                outputTextBox.Text += $"{url} downloaded: {data.Length} bytes" + Environment.NewLine;
+                outputTextBox.Text += $"{url} downloaded: {data.Length} bytes {Environment.NewLine}";
             }
         }
     }

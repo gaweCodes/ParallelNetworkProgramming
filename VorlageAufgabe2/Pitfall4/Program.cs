@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Pitfall4 
+﻿namespace Pitfall4 
 {
     internal class Program
     {

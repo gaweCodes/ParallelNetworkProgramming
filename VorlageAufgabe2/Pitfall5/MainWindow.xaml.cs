@@ -7,10 +7,10 @@ namespace Pitfall5
     public partial class MainWindow : Window 
     {
         public MainWindow() => InitializeComponent();
-        private async void calculationButton_Click(object sender, RoutedEventArgs e) 
+        private async void CalculationButton_Click(object sender, RoutedEventArgs e) 
         {
             var task = CalculateAsync();
-            resultLabel.Content = task.Result;
+            resultLabel.Content = await task;
         }
         private async Task<string> CalculateAsync() 
         {
@@ -18,9 +18,8 @@ namespace Pitfall5
             return await Task.Run(() => {
                 for (long i = 2; i <= Math.Sqrt(number); i++) 
                 {
-                    if (number % i == 0) {
+                    if (number % i == 0) 
                         return "Not prime";
-                    }
                 }
                 return "Prime";
             });
