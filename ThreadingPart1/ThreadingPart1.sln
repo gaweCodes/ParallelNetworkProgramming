@@ -73,7 +73,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_DemoUDPSender", "DemoUDP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdpMulticast", "UdpMulticast\UdpMulticast.csproj", "{6B0A26A2-5B4A-4D01-993F-40794C519F6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiningPhilosopherSemaphore", "DiningPhilosopherSemaphore\DiningPhilosopherSemaphore.csproj", "{F6DD2DB8-194B-424F-9B8C-683BA06AEE96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiningPhilosopherSemaphore", "DiningPhilosopherSemaphore\DiningPhilosopherSemaphore.csproj", "{F6DD2DB8-194B-424F-9B8C-683BA06AEE96}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ChatSystem", "ChatSystem", "{D0A4ED6E-4D5C-438F-8253-25E77EDDA852}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatSystem.Server", "ChatSystem.Server\ChatSystem.Server.csproj", "{BAB04B25-63C1-41D1-8CAE-A2FC8F4B7D6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatSystem.Client", "ChatSystem.Client\ChatSystem.Client.csproj", "{C2D8B65C-1865-4635-8CBE-8D4FDBD12FB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -371,9 +377,29 @@ Global
 		{F6DD2DB8-194B-424F-9B8C-683BA06AEE96}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F6DD2DB8-194B-424F-9B8C-683BA06AEE96}.Release|x86.ActiveCfg = Release|Any CPU
 		{F6DD2DB8-194B-424F-9B8C-683BA06AEE96}.Release|x86.Build.0 = Release|Any CPU
+		{BAB04B25-63C1-41D1-8CAE-A2FC8F4B7D6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAB04B25-63C1-41D1-8CAE-A2FC8F4B7D6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAB04B25-63C1-41D1-8CAE-A2FC8F4B7D6D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BAB04B25-63C1-41D1-8CAE-A2FC8F4B7D6D}.Debug|x86.Build.0 = Debug|Any CPU
+		{BAB04B25-63C1-41D1-8CAE-A2FC8F4B7D6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAB04B25-63C1-41D1-8CAE-A2FC8F4B7D6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAB04B25-63C1-41D1-8CAE-A2FC8F4B7D6D}.Release|x86.ActiveCfg = Release|Any CPU
+		{BAB04B25-63C1-41D1-8CAE-A2FC8F4B7D6D}.Release|x86.Build.0 = Release|Any CPU
+		{C2D8B65C-1865-4635-8CBE-8D4FDBD12FB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2D8B65C-1865-4635-8CBE-8D4FDBD12FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2D8B65C-1865-4635-8CBE-8D4FDBD12FB8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C2D8B65C-1865-4635-8CBE-8D4FDBD12FB8}.Debug|x86.Build.0 = Debug|Any CPU
+		{C2D8B65C-1865-4635-8CBE-8D4FDBD12FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2D8B65C-1865-4635-8CBE-8D4FDBD12FB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2D8B65C-1865-4635-8CBE-8D4FDBD12FB8}.Release|x86.ActiveCfg = Release|Any CPU
+		{C2D8B65C-1865-4635-8CBE-8D4FDBD12FB8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BAB04B25-63C1-41D1-8CAE-A2FC8F4B7D6D} = {D0A4ED6E-4D5C-438F-8253-25E77EDDA852}
+		{C2D8B65C-1865-4635-8CBE-8D4FDBD12FB8} = {D0A4ED6E-4D5C-438F-8253-25E77EDDA852}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {960E1246-C730-4072-B4B5-7834A5F7BB08}
